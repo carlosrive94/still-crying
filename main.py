@@ -18,4 +18,6 @@ f = urllib.urlopen('http://api.coindesk.com/v1/bpi/currentprice.json')
 resp = json.loads(f.read())
 eurConversion = float(resp['bpi']['EUR']['rate_float'])
 eurTotal = eurConversion * totalBitcoins
-print('Total earned: ' + str(eurTotal) + ' euros')
+usdConversion = float(resp['bpi']['USD']['rate_float'])
+usdTotal = usdConversion * totalBitcoins
+print('Total earned: ' + str(totalBitcoins) + ' bitcoins // ' + str(eurTotal) + ' euros // ' + str(usdTotal) + ' dollars')
